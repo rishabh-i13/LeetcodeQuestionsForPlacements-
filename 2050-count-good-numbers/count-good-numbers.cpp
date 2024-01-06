@@ -2,7 +2,6 @@ class Solution {
 public:
     long long M = 1e9 + 7;
     long long power(long long N, long long R)
-
     {
         if (R == 0)
             return 1;
