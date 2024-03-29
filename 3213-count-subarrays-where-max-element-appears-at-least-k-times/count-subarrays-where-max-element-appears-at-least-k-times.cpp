@@ -5,7 +5,7 @@ public:
         int count=0;
         int n=nums.size();
         long long int ans=0;
-        long long int maxi=*max_element(nums.begin(),nums.end());
+        int maxi=*max_element(nums.begin(),nums.end());
         while(j<n){
             if(nums[j]==maxi)count++;
 
