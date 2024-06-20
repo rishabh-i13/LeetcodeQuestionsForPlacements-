@@ -10,6 +10,7 @@ public:
                 ct++;
                 prevPos=currPos;
             }
+            if(ct==m) return true;
         }
 
         if(ct>=m) return true;
