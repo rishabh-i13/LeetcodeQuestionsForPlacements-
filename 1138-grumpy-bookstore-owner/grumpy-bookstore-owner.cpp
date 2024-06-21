@@ -2,25 +2,24 @@ class Solution {
 public:
     int maxSatisfied(vector<int>& customers, vector<int>& grumpy, int minutes) {
         int n=customers.size();
-
-        int i=0,j=minutes-1;
-
+        int i=0,j=minutes;
         int whereNotgrumpy=0;
         for(int i=0;i<n;i++){
             if(grumpy[i]==0) whereNotgrumpy+=customers[i];
         }
 
-        int grumpyMax=0;
+        int currUnsat=0;
+        for(int k=i;k<j;k++){
+            currUnsat+=customers[k]*grumpy[k];
+        }
+        int grumpyMax=currUnsat;
         while(j<n){
-            int currGrumpy=0;
-            for(int k=i;k<=j;k++){
-                if(grumpy[k]==1) currGrumpy+=customers[k];
-            }
-            grumpyMax=max(grumpyMax,currGrumpy);
+            currUnsat+=customers[j]*grumpy[j];
+            currUnsat-=customers[i]*grumpy[i];
+            grumpyMax=max(grumpyMax,currUnsat);
             i++;
             j++;
         }
-
         return whereNotgrumpy+grumpyMax;
     }
 };
