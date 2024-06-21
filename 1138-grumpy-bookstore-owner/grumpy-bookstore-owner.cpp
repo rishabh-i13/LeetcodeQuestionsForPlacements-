@@ -10,8 +10,7 @@ public:
             if(grumpy[i]==0) whereNotgrumpy+=customers[i];
         }
 
-        int grumpyMax=INT_MIN;
-
+        int grumpyMax=0;
         while(j<n){
             int currGrumpy=0;
             for(int k=i;k<=j;k++){
