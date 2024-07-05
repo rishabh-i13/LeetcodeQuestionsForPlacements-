@@ -29,7 +29,7 @@ public:
                 }
                 else{
                     minDist=min(minDist,idx-prev_ct);
-                    maxDist=max(minDist,idx-first_ct);
+                    maxDist=max(maxDist,idx-first_ct);
                     prev_ct=idx;
                 }
             }
