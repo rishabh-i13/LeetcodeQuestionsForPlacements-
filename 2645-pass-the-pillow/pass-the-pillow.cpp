@@ -2,7 +2,7 @@ class Solution {
 public:
     int passThePillow(int n, int time) {
         if(time<n) return time+1;
-        if(time==n) return n-1;
+        // if(time==n) return n-1;
 
         int i=n-1;
         int j=time/i;
