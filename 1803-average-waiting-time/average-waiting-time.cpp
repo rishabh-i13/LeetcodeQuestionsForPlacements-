@@ -19,7 +19,6 @@ public:
                 waiting+=finish-start;
             }
         }
-        cout<<waiting;
         double ans=static_cast<double>(waiting) / static_cast<double>(n);
         return ans;
     }
