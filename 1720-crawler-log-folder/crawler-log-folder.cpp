@@ -9,7 +9,7 @@ public:
                 if(count>0) count--;
                 else continue;
             };
-            if(s[0]!='.' and s[s.size()-1]=='/') count++;
+            if(s[0]!='.') count++;
         }
 
         return count;
