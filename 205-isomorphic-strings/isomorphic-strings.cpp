@@ -1,18 +1,20 @@
 class Solution {
 public:
     bool isIsomorphic(string s, string t) {
-        if(s.size()!=t.size())return false;
-        bool f1=true,f2=true;
-        map<char,char> mp1;
+        //if size id not equal they will never be isomorphic
+        if(s.size()!=t.size()) return false;
+        map<char,char> mp;
+        bool flag1=true,flag2=true;
         int n=s.size();
+
         for(int i=0;i<n;i++){
-            if(mp1.find(s[i])==mp1.end()){
-                mp1[s[i]]=t[i];
+            if(mp.find(s[i])==mp.end()){
+                mp[s[i]]=t[i];
             }
             else{
-                if(mp1[s[i]]==t[i]) continue;
+                if(mp[s[i]]==t[i]) continue;
                 else {
-                    f1=false;
+                    flag1=false;
                     break;
                 }
             }
@@ -24,13 +26,14 @@ public:
             }
             else{
                 if(mp2[t[i]]==s[i]) continue;
-                else {
-                    f2=false;
+                else{
+                    flag2=false;
                     break;
                 }
             }
         }
-        if(f1 and f2) return true;
+
+        if(flag1 and flag2) return true;
         else return false;
     }
 };
