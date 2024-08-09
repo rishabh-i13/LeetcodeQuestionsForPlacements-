@@ -15,8 +15,7 @@ public:
         bool flag=true;
         for(int k=0;k<v.size();k++){
             if(v[k]!=k+1){
-                flag=false;
-                break;
+                return false;
             }
         }
         int r1=grid[i][j]+grid[i][j+1]+grid[i][j+2];
