@@ -35,7 +35,6 @@ public:
         if (kthFromFront && kthFromEnd) {
             swap(kthFromFront->val, kthFromEnd->val);
         }
-
         return head;
     }
 };
