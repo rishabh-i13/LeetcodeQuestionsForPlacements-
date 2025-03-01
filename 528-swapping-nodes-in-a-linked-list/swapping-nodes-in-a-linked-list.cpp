@@ -23,12 +23,8 @@ public:
         ListNode* temp=head;
         int i=1;
         while(temp!=NULL){
-            if(i==k){
-                kthFromFront=temp;
-            }
-            else if(i==j){
-                kthFromEnd=temp;
-            }
+            if(i==k)kthFromFront=temp;
+            else if(i==j)kthFromEnd=temp;
             i++;
             temp=temp->next;
         }
