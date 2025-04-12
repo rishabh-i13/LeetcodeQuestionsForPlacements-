@@ -1,22 +1,31 @@
-class Solution {
-public:
-    int dp[1001][1001];
-    int working(string &first,string &second,int i,int j){
-        if(i==first.length() || j==second.length()) return 0 ;
+class Solution
+{
+    public:
+        int dp[1001][1001];
 
-        int count=0;
-        if(dp[i][j]!=-1) return dp[i][j];
+    int workFunc(string &text1, string &text2, int i, int j)
 
-        if(first[i]==second[j]){
-            count= 1 + working(first,second,i+1,j+1);
+    {
+        if (i == text1.size() || j == text2.size()) return 0;
+
+        if (dp[i][j] != -1) return dp[i][j];
+        int count = 0;
+        if (text1[i] == text2[j])
+        {
+            count = 1 + workFunc(text1, text2, i + 1, j + 1);
         }
-        else{
-            count= max(working(first,second,i,j+1),working(first,second,i+1,j));
+        else
+        {
+            int moveFintext1 = workFunc(text1, text2, i + 1, j);
+            int moveFintext2 = workFunc(text1, text2, i, j + 1);
+            count = max(moveFintext1, moveFintext2);
         }
-        return dp[i][j]=count;
+
+        return dp[i][j] = count;
     }
-    int longestCommonSubsequence(string text1, string text2) {
-        memset(dp,-1,sizeof(dp));
-        return working(text1,text2,0,0);
+    int longestCommonSubsequence(string text1, string text2)
+    {
+        memset(dp, -1, sizeof(dp));
+        return workFunc(text1, text2, 0, 0);
     }
 };
